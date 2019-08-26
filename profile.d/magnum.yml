@@ -1,0 +1,17 @@
+dependencies:
+ - name: magnum
+   gitrepo: https://github.com/ulricheck/conan-magnum
+   gitbranch: stable/2019.01
+   conanuser: camposs
+ - name: magnum-integration
+   gitrepo: https://github.com/ulricheck/conan-magnum-integration
+   gitbranch: stable/2019.01
+   conanuser: camposs
+ - name: magnum-extras
+   gitrepo: https://github.com/ulricheck/conan-magnum-extras
+   gitbranch: stable/2019.01
+   conanuser: camposs
+ - name: magnum-plugins
+   gitrepo: https://github.com/ulricheck/conan-magnum-plugins
+   gitbranch: stable/2019.01
+   conanuser: camposs

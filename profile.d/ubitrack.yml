@@ -1,0 +1,5 @@
+dependencies:
+ - name: ubitrack
+   gitrepo: https://github.com/Ubitrack/ubitrack
+   gitbranch: v1.3.0
+   conanuser: ubitrack
