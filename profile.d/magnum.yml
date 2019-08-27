@@ -1,4 +1,8 @@
 dependencies:
+ - name: corrade
+   gitrepo: https://github.com/ulricheck/conan-corrade
+   gitbranch: stable/2019.01
+   conanuser: camposs
  - name: magnum
    gitrepo: https://github.com/ulricheck/conan-magnum
    gitbranch: stable/2019.01
