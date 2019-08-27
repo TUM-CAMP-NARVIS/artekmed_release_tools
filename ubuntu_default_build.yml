@@ -24,7 +24,7 @@ options:
   - ubitrack_lang_python:python=/usr/bin/python3
   - ubitrack:with_camera_realsense=True
   - ubitrack:with_camera_kinect4azure=True
-  - ubitrack:with_camera_zed=True
+  - ubitrack:with_camera_zed=False
   - ubitrack_device_camera_zed:zedsdk_root=/usr/local/zed
   - cuda_dev_config:cuda_root=/usr/local/cuda
   - cuda_dev_config:cuda_version=10.1
@@ -32,7 +32,7 @@ options:
   - opencv:with_gtk=False
   - opencv:with_cuda=False
   - opencv:with_opengl=False
-  - ubitrack:with_device_videostream=False
+  - ubitrack:with_device_videostream=True
   - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
   - ubitrack_device_comm_videostream:with_ndi=True
   - magnum:build_plugins_static=True
