@@ -1,0 +1,39 @@
+config:
+  profile_directory: ./profile.d
+meta_package:
+  name: artekmed_prototyp02
+  version: 0.1.0
+  user: artekmed
+  channel: stable
+  gitrepo: https://github.com/TUM-CAMP-NARVIS/artekmed_prototyp_02
+  gitbranch: master
+profiles:
+  - core.yml
+  - vision.yml
+  - visualization.yml
+  - device_tracker.yml
+  - device_camera.yml
+  - device_comm.yml
+  - device_comm_cuda.yml
+  - lang_python.yml
+  - ubitrack.yml
+  - magnum.yml
+options:
+  - ubitrack:with_haptic_calibration=True
+  - ubitrack:with_python=True
+  - ubitrack_lang_python:python=/usr/bin/python3
+  - ubitrack:with_camera_realsense=True
+  - ubitrack:with_camera_kinect4azure=True
+  - ubitrack:with_camera_zed=True
+  - ubitrack_device_camera_zed:zedsdk_root=/usr/local/zed
+  - cuda_dev_config:cuda_root=/usr/local/cuda
+  - cuda_dev_config:cuda_version=10.1
+  - ubitrack_core:enable_tracing=False
+  - opencv:with_gtk=False
+  - opencv:with_cuda=False
+  - opencv:with_opengl=False
+  - ubitrack:with_device_videostream=False
+  - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
+  - ubitrack_device_comm_videostream:with_ndi=True
+  - magnum:build_plugins_static=True
+  - magnum:shared=False
