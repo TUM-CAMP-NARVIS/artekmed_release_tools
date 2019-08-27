@@ -19,20 +19,20 @@ profiles:
   - ubitrack.yml
   - magnum.yml
 options:
+  - ubitrack:with_haptic_calibration=True
+  - ubitrack:with_python=True
+  - ubitrack_lang_python:python=/usr/bin/python3
+  - ubitrack:with_camera_realsense=True
+  - ubitrack:with_camera_kinect4azure=True
+  - ubitrack:with_camera_zed=False
+  - ubitrack_device_camera_zed:zedsdk_root=/usr/local/zed
+  - cuda_dev_config:cuda_root=/usr/local/cuda
+  - cuda_dev_config:cuda_version=10.1
+  - ubitrack_core:enable_tracing=False
   - opencv:with_gtk=False
   - opencv:with_cuda=False
   - opencv:with_opengl=False
-  - cuda_dev_config:cuda_root=C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v10.0
-  - cuda_dev_config:cuda_version=10.0
-  - ubitrack:with_haptic_calibration=True
-  - ubitrack:with_python=True
-  - ubitrack_lang_python:python=C:\\Users\\admin\\Anaconda3\\python.exe
-  - ubitrack:with_camera_realsense=True
-  - ubitrack:with_camera_kinect4azure=True
-  - ubitrack:with_camera_zed=True
-  - ubitrack_device_camera_zed:zedsdk_root=C:\\Program Files (x86)\\ZED SDK
-  - ubitrack_core:enable_tracing=False
-  - ubitrack:with_device_videostream=False
+  - ubitrack:with_device_videostream=True
   - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
   - ubitrack_device_comm_videostream:with_ndi=True
   - magnum:build_plugins_static=True
