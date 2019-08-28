@@ -8,7 +8,7 @@ Requirements:
 - conan (1.18.1+)
 - doit
 - git + dev tools
-- mono (for linux: https://www.mono-project.com/docs/getting-started/install/linux/)
+- mono-dev tools (for kinect4azure nuget: https://www.mono-project.com/download/stable/#download-lin)
 
 
 Create an Artekmed Release:
