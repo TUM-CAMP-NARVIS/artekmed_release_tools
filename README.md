@@ -1,26 +1,27 @@
-Ubitrack Release Tools
-=======================
+Artekmed Prototype 2 Release Tools
+==================================
 
-This package provides scripts for ubitrack development and release management.
+This package provides scripts for artekmed development and release management.
 
 Requirements:
 -------------
-- conan (1.16+)
+- conan (1.18.1+)
 - doit
 - git + dev tools
+- mono (for linux: https://www.mono-project.com/docs/getting-started/install/linux/)
 
 
-Create an Ubitrack Release:
+Create an Artekmed Release:
 ---------------------------
 
 How to use it:
-- Minimal (default) ubitrack release-build:
+- Minimal (default) artekmed release-build:
 
   $ doit
   
 - custom build:
 
-  $ cp custom_build_example.yml local_build.yml
+  $ cp default_build.yml local_build.yml
 
   edit local_build.yml to match your needs
 
@@ -30,8 +31,10 @@ How to use it:
 
   add "upload=True" to the call for doit.
 
-Local Development of Ubitrack (Conan Workspace):
+Local Development of Artekmed (Conan Workspace):
 ------------------------------------------------
+
+Note: this has not yet been tested and will probably not work as expected!!!
 
 How to use it:
 - Minimal (default) ubitrack release-build:
