@@ -26,14 +26,14 @@ options:
   - cuda_dev_config:cuda_version=10.0
   - ubitrack:with_haptic_calibration=True
   - ubitrack:with_python=True
-  - ubitrack:with_device_videostream=False
+  - ubitrack:with_device_videostream=True
   - ubitrack:with_camera_realsense=True
   - ubitrack:with_camera_kinect4azure=True
   - ubitrack:with_camera_zed=False
-  - ubitrack_core:enable_tracing=False
+  - ubitrack_core:enable_tracing=True
   - ubitrack_lang_python:python=C:\\ProgramData\\Anaconda3\\python.exe
   - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
-  - ubitrack_device_comm_videostream:with_ndi=True
+  - ubitrack_device_comm_videostream:with_ndi=False
   - ubitrack_device_camera_zed:zedsdk_root=C:\\Program Files (x86)\\ZED SDK
   - magnum:build_plugins_static=True
   - magnum:shared=False
