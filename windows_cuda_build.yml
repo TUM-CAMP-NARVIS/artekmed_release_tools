@@ -33,7 +33,7 @@ options:
   - ubitrack_core:enable_tracing=True
   - ubitrack_lang_python:python=C:\\Users\\admin\\Anaconda3\\python.exe
   - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
-  - ubitrack_device_comm_videostream:with_ndi=True
+  - ubitrack_device_comm_videostream:with_ndi=False
   - ubitrack_device_camera_zed:zedsdk_root=C:\\Program Files (x86)\\ZED SDK
   - magnum:build_plugins_static=True
   - magnum:shared=False
