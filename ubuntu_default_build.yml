@@ -34,6 +34,6 @@ options:
   - opencv:with_opengl=False
   - ubitrack:with_device_videostream=True
   - ubitrack_device_comm_videostream:with_nvenc_rtsp=True
-  - ubitrack_device_comm_videostream:with_ndi=True
+  - ubitrack_device_comm_videostream:with_ndi=False
   - magnum:build_plugins_static=True
   - magnum:shared=False
