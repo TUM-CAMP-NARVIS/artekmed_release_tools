@@ -55,6 +55,10 @@ dependencies:
    gitrepo: https://github.com/ulricheck/conan-cppzmq
    gitbranch: stable/4.4.1
    conanuser: camposs
+ - name: azmq
+   gitrepo: https://github.com/ulricheck/conan-azmq
+   gitbranch: stable/1.0.3
+   conanuser: camposs
  - name: assimp
    gitrepo: https://github.com/ulricheck/conan-assimp
    gitbranch: stable/4.1.0
