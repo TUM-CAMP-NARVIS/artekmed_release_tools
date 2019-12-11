@@ -7,7 +7,7 @@ import conans
 from conans import __version__ as client_version
 from conans.client import packager, tools
 from conans.client.cache.cache import ClientCache
-from conans.client.cmd.build import build
+from conans.client.cmd.build import cmd_build
 from conans.client.cmd.create import create
 from conans.client.cmd.download import download
 from conans.client.cmd.export import cmd_export, export_alias
@@ -15,7 +15,6 @@ from conans.client.cmd.export_pkg import export_pkg
 from conans.client.cmd.profile import (cmd_profile_create, cmd_profile_delete_key, cmd_profile_get,
                                        cmd_profile_list, cmd_profile_update)
 from conans.client.cmd.search import Search
-from conans.client.cmd.test import PackageTester
 from conans.client.cmd.uploader import CmdUpload
 from conans.client.cmd.user import user_set, users_clean, users_list
 from conans.client.conf import ConanClientConfigParser
@@ -29,7 +28,6 @@ from conans.client.hook_manager import HookManager
 from conans.client.importer import run_imports, undo_imports
 from conans.client.installer import BinaryInstaller
 from conans.client.loader import ConanFileLoader
-from conans.client.manager import ConanManager
 from conans.client.migrations import ClientMigrator
 from conans.client.output import ConanOutput, colorama_initialize
 from conans.client.profile_loader import profile_from_args, read_profile
@@ -82,21 +80,22 @@ def workspace_install(self, path, settings=None, options=None, env=None,
         cwd = cwd or get_cwd()
         abs_path = os.path.normpath(os.path.join(cwd, path))
 
-        remotes = self.app.cache.registry.load_remotes()
-        remotes.select(remote_name)
-        self.app.python_requires.enable_remotes(update=update, remotes=remotes)
+        remotes = self.app.load_remotes(remote_name=remote_name, update=update)
+        # remotes = self.app.cache.registry.load_remotes()
+        # remotes.select(remote_name)
+        # self.app.python_requires.enable_remotes(update=update, remotes=remotes)
 
         workspace = Workspace(abs_path, self.app.cache)
         graph_info = get_graph_info(profile_name, settings, options, env, cwd, None,
                                     self.app.cache, self.app.out)
 
         self.app.out.info("Configuration:")
-        self.app.out.writeln(graph_info.profile.dumps())
+        self.app.out.writeln(graph_info.profile_host.dumps())
 
         self.app.cache.editable_packages.override(workspace.get_editable_dict())
 
         recorder = ActionRecorder()
-        deps_graph, _ = self.app.graph_manager.load_graph(workspace.root, None, graph_info, build,
+        deps_graph = self.app.graph_manager.load_graph(workspace.root, None, graph_info, build,
                                                        False, update, remotes, recorder)
 
         print_graph(deps_graph, self.app.out)
@@ -110,17 +109,16 @@ def workspace_install(self, path, settings=None, options=None, env=None,
                     tmp.extend([g for g in generators if g not in tmp])
                     node.conanfile.generators = tmp
 
-        installer = BinaryInstaller(self.app.cache, self.app.out, self.app.remote_manager,
-                                    recorder=recorder, hook_manager=self.app.hook_manager)
-        installer.install(deps_graph, remotes, keep_build=False, graph_info=graph_info)
+        installer = BinaryInstaller(self.app, recorder)
+        installer.install(deps_graph, remotes, build, update, keep_build=False, graph_info=graph_info)
 
         install_folder = install_folder or cwd
         workspace.generate(install_folder, deps_graph, self.app.out)
 
-        workspace.build(install_folder, deps_graph, self.app.out,self.app.hook_manager, self.app.graph_manager)
+        workspace.build(install_folder, deps_graph, self.app.out,self.app)
 
 
-def build(self, install_folder, graph, output, hook_mangaer, graph_manager):        
+def build(self, install_folder, graph, output, app):        
         if self._ws_generator == "cmake":
             cmake = ""
             add_subdirs = ""
@@ -155,7 +153,9 @@ def build(self, install_folder, graph, output, hook_mangaer, graph_manager):
                     #print("build folder "+build)
                     #build(graph_manager, hook_manager, conanfile_path, source_folder, build_folder, package_folder, install_folder,
                     #test=False, should_configure=True, should_build=True, should_install=True, should_test=True)
-                    _build.build(graph_manager,hook_mangaer,conanFilePath,src,build, install_folder, build)
+                    #build(app, conanfile_path, source_folder, build_folder, package_folder, install_folder,
+                    #test=False, should_configure=True, should_build=True, should_install=True, should_test=True):
+                    _build.cmd_build(app,conanFilePath,src,build, install_folder, build)
 
 
 
