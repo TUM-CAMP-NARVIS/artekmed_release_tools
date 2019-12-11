@@ -32,7 +32,7 @@ dependencies:
    gitbranch: stable/0.9.9.2
    conanuser: camposs
  - name: ircad_common
-   gitrepo: https://github.com/ulricheck/conan-ircad_common
+   gitrepo: https://github.com/ulricheck/conan-ircad-common
    gitbranch: stable/1.0.2
    conanuser: camposs
  - name: jom
