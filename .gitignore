@@ -12,3 +12,5 @@ __pycache__/
 build_config\.yml
 
 .doit.db.bak
+
+local_build.yml

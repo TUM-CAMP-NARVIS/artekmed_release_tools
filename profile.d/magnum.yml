@@ -1,21 +1,21 @@
 dependencies:
  - name: corrade
-   gitrepo: https://github.com/ulricheck/conan-corrade
+   gitrepo: https://github.com/TUM-CONAN/conan-corrade
    gitbranch: stable/2019.01
    conanuser: camposs
  - name: magnum
-   gitrepo: https://github.com/ulricheck/conan-magnum
+   gitrepo: https://github.com/TUM-CONAN/conan-magnum
    gitbranch: stable/2019.01
    conanuser: camposs
  - name: magnum-integration
-   gitrepo: https://github.com/ulricheck/conan-magnum-integration
+   gitrepo: https://github.com/TUM-CONAN/conan-magnum-integration
    gitbranch: stable/2019.01
    conanuser: camposs
  - name: magnum-extras
-   gitrepo: https://github.com/ulricheck/conan-magnum-extras
+   gitrepo: https://github.com/TUM-CONAN/conan-magnum-extras
    gitbranch: stable/2019.01
    conanuser: camposs
  - name: magnum-plugins
-   gitrepo: https://github.com/ulricheck/conan-magnum-plugins
+   gitrepo: https://github.com/TUM-CONAN/conan-magnum-plugins
    gitbranch: stable/2019.01
    conanuser: camposs
